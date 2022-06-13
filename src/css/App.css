@@ -1,0 +1,55 @@
+.app-body{
+  direction: rtl;
+  padding: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.text-input{
+  padding: 16px;
+  border-radius: 10px;
+  border: 2px solid #403d3f;
+  width: 30%;
+  margin-bottom: 10px;
+}
+.text-input::placeholder{
+  font-size: 1.5em;
+  color: #635d5d;
+}
+.button-grop{
+  padding: 8px;
+}
+.send-button{
+  padding: 4px;
+  background-color: crimson;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 8px;
+  width: 100px;
+  height: 40px;
+  margin-left: 15px;
+}
+
+.send-button:hover{
+  cursor: pointer;
+  width: 120px;
+  height: 48px;
+}
+
+.read-button{
+  padding: 4px;
+  background-color: crimson;
+  color: white;
+  font-size: 1.5em;
+  border-radius: 8px;
+  width: 100px;
+  height: 40px;
+}
+
+.read-button:hover{
+  cursor: pointer;
+  width: 120px;
+  height: 48px;
+}

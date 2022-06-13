@@ -1,56 +1,58 @@
-import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import React, { useState } from "react";
+import "./css/App.css";
+// import showEror from "./components/showEror";
+// import showText from "./components/showText";
 
 function App() {
+  const [text, setText] = useState("");
+
+  const handleChange = (event) => {
+    setText(event.target.value);
+    console.log("value is:", event.target.value);
+  };
+
+  const sendClick = (event) => {
+    event.preventDefault();
+    localStorage.setItem('text' , JSON.stringify(text));
+    // 👇️ value of input field
+    console.log("handleClick 👉️", text);
+  };
+
+  const readClick = (event) => {
+    event.preventDefault();
+    const getTextStrg = localStorage.getItem('text');
+    console.log("LocalStorage text : " + getTextStrg);
+  };
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+    <div className="app-body">
+      <input
+        onChange={handleChange}
+        value={text}
+        className="text-input"
+        type="text"
+        placeholder="متن خود را وارد کنید ..."
+        required
+      ></input>
+      <div className="button-grop">
+        <button
+          className="send-button"
+          type="submit"
+          id="send-button"
+          onClick={sendClick}
+        >
+          ارسال
+        </button>
+        <button
+          className="read-button"
+          type="submit"
+          id="read-button"
+          onClick={readClick}
+          // onClick={readClick}
+        >
+          خواندن
+        </button>
+      </div>
     </div>
   );
 }
